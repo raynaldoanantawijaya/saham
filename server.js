@@ -305,18 +305,8 @@ async function scrapeAllData(options = { stocks: true, gold: true, crypto: true 
 }
 
 // --- SCHEDULERS ---
-
-// 1. Stocks: Mon-Fri at 09:05 (Opening) and 16:05 (Closing)
-cron.schedule('5 9,16 * * 1-5', () => {
-    console.log('[Scheduler] Triggering STOCK Update (Pagi/Sore)...');
-    scrapeAllData({ stocks: true, gold: false, crypto: false });
-});
-
-// 2. Gold & Crypto: Daily at 08:00, 14:00, 20:00 (3x/Day 24/7)
-cron.schedule('0 8,14,20 * * *', () => {
-    console.log('[Scheduler] Triggering GOLD & CRYPTO Update (3x Daily)...');
-    scrapeAllData({ stocks: false, gold: true, crypto: true });
-});
+// Internal schedulers removed in favor of External Cron Logic (e.g. console.cron-job.org)
+// Use /api/trigger-fetch?target=stocks or ?target=gold_crypto
 
 app.get('/', (req, res) => res.send('<h1>Scraper API</h1><p>Stocks: /api/idx-data</p><p>Gold: /api/gold-data</p><p>Crypto: /api/crypto-data</p>'));
 
@@ -361,8 +351,19 @@ app.get('/api/all-data', (req, res) => {
 
 app.get('/api/trigger-fetch', async (req, res) => {
     if (req.query.key !== API_SECRET) return res.status(401).json({ error: 'Unauthorized' });
-    // Force fetch usually implies fetching everything
-    const result = await scrapeAllData({ stocks: true, gold: true, crypto: true });
+
+    const target = req.query.target; // 'stocks', 'gold_crypto', or 'all' (default)
+
+    let options = { stocks: true, gold: true, crypto: true }; // Default ALL
+
+    if (target === 'stocks') {
+        options = { stocks: true, gold: false, crypto: false };
+    } else if (target === 'gold_crypto') {
+        options = { stocks: false, gold: true, crypto: true };
+    }
+
+    console.log(`[API Trigger] Fetching with target: ${target || 'all'}`);
+    const result = await scrapeAllData(options);
     res.json(result);
 });
 
