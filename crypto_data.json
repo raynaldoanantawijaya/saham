@@ -1,0 +1,30 @@
+{
+  "LastUpdate": "2026-01-02T08:15:58.804Z",
+  "Source": "indodax.com",
+  "Data": [
+    {
+      "Code": "BTC",
+      "Name": "Bitcoin",
+      "Price": 1488903000,
+      "High": 1490000000,
+      "Low": 1473225000,
+      "Vol_IDR": 20220391620
+    },
+    {
+      "Code": "ETH",
+      "Name": "Ethereum",
+      "Price": 50665000,
+      "High": 50799000,
+      "Low": 50000000,
+      "Vol_IDR": 8137555877
+    },
+    {
+      "Code": "USDT",
+      "Name": "Tether",
+      "Price": 16741,
+      "High": 16802,
+      "Low": 16730,
+      "Vol_IDR": 91446080368
+    }
+  ]
+}

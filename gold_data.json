@@ -1,0 +1,120 @@
+{
+  "LastUpdate": "2026-01-02T08:17:34.644Z",
+  "Source": "harga-emas.org",
+  "Data": {
+    "Spot": [
+      {
+        "Unit": "Ounce (oz)",
+        "USD": 4385.71,
+        "IDR": 73332086.48
+      },
+      {
+        "Unit": "Gram (gr)",
+        "USD": 141,
+        "IDR": 2357681.33
+      },
+      {
+        "Unit": "Kilogram (kg)",
+        "USD": 141003.85,
+        "IDR": 2357681330
+      }
+    ],
+    "Antam": [
+      {
+        "weight": 1000,
+        "price": 2444600000
+      },
+      {
+        "weight": 500,
+        "price": 1222320000
+      },
+      {
+        "weight": 250,
+        "price": 611265000
+      },
+      {
+        "weight": 100,
+        "price": 244612000
+      },
+      {
+        "weight": 50,
+        "price": 122345000
+      },
+      {
+        "weight": 25,
+        "price": 61212000
+      },
+      {
+        "weight": 10,
+        "price": 25540000
+      },
+      {
+        "weight": 5,
+        "price": 13130000
+      },
+      {
+        "weight": 2,
+        "price": 4948000
+      },
+      {
+        "weight": 1,
+        "price": 2654000
+      },
+      {
+        "weight": 0.5,
+        "price": 1372000
+      }
+    ],
+    "UBS": [
+      {
+        "weight": 0.1,
+        "price": 322200
+      },
+      {
+        "weight": 0.25,
+        "price": 741500
+      },
+      {
+        "weight": 0.5,
+        "price": 1354000
+      },
+      {
+        "weight": 1,
+        "price": 2576000
+      },
+      {
+        "weight": 2,
+        "price": 5014000
+      },
+      {
+        "weight": 3,
+        "price": 7510500
+      },
+      {
+        "weight": 4,
+        "price": 9990500
+      },
+      {
+        "weight": 5,
+        "price": 12382000
+      },
+      {
+        "weight": 10,
+        "price": 24621000
+      },
+      {
+        "weight": 25,
+        "price": 61434000
+      },
+      {
+        "weight": 50,
+        "price": 122600000
+      },
+      {
+        "weight": 100,
+        "price": 244221000
+      }
+    ],
+    "LastUpdate": "2026-01-02T08:17:34.639Z"
+  }
+}
