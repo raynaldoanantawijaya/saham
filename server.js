@@ -10,7 +10,7 @@ const app = express();
 const PORT = 3000;
 const DATA_FILE = path.join(__dirname, 'idx_data.json');
 const USER_DATA_DIR = path.join(__dirname, 'browser_session');
-const API_SECRET = 'your-secure-api-key'; // Change this for production
+const API_SECRET = process.env.API_SECRET || 'your-secure-api-key'; // Use Env Var for safer deployment
 
 // Ensure session directory exists
 if (!fs.existsSync(USER_DATA_DIR)) {
