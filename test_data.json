@@ -1,0 +1,565 @@
+{
+  "Items": [
+    {
+      "IndexCode": "COMPOSITE",
+      "PrevVal": 8646.938,
+      "HighVal": 8699.798,
+      "LowVal": 8646.17,
+      "LastVal": 8682.938,
+      "ChgVal": 36,
+      "ChgPct": 0.42,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/COMPOSITE",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "DBX",
+      "PrevVal": 4189.398,
+      "HighVal": 4224.604,
+      "LowVal": 4188.606,
+      "LastVal": 4222.503,
+      "ChgVal": 33.11,
+      "ChgPct": 0.79,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/DBX",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "MBX",
+      "PrevVal": 2161.589,
+      "HighVal": 2174.273,
+      "LowVal": 2161.267,
+      "LastVal": 2167.464,
+      "ChgVal": 5.88,
+      "ChgPct": 0.27,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/MBX",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "KOMPAS100",
+      "PrevVal": 1193.521,
+      "HighVal": 1202.508,
+      "LowVal": 1193.273,
+      "LastVal": 1198.564,
+      "ChgVal": 5.04,
+      "ChgPct": 0.42,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/KOMPAS100",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "INFOBANK15",
+      "PrevVal": 1033.545,
+      "HighVal": 1034.887,
+      "LowVal": 1023.198,
+      "LastVal": 1025.06,
+      "ChgVal": -8.49,
+      "ChgPct": -0.82,
+      "DtCreate": "2026-01-02T09:44:33",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/INFOBANK15",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "LQ45",
+      "PrevVal": 846.572,
+      "HighVal": 850.953,
+      "LowVal": 845.97,
+      "LastVal": 847.707,
+      "ChgVal": 1.14,
+      "ChgPct": 0.13,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/LQ45",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "JII",
+      "PrevVal": 578.48,
+      "HighVal": 584.737,
+      "LowVal": 578.224,
+      "LastVal": 583.223,
+      "ChgVal": 4.74,
+      "ChgPct": 0.82,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/JII",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "BISNIS-27",
+      "PrevVal": 553.216,
+      "HighVal": 555.752,
+      "LowVal": 552.276,
+      "LastVal": 553.197,
+      "ChgVal": -0.02,
+      "ChgPct": 0,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/BISNIS-27",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "IDXHIDIV20",
+      "PrevVal": 509.88,
+      "HighVal": 511.019,
+      "LowVal": 507.579,
+      "LastVal": 508.479,
+      "ChgVal": -1.4,
+      "ChgPct": -0.28,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/IDXHIDIV20",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "IDXSMC-COM",
+      "PrevVal": 503.295,
+      "HighVal": 508.813,
+      "LowVal": 503.256,
+      "LastVal": 508.483,
+      "ChgVal": 5.19,
+      "ChgPct": 1.03,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/IDXSMC-COM",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "IDX30",
+      "PrevVal": 437.244,
+      "HighVal": 439.262,
+      "LowVal": 435.929,
+      "LastVal": 436.834,
+      "ChgVal": -0.41,
+      "ChgPct": -0.09,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/IDX30",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "Investor33",
+      "PrevVal": 422.543,
+      "HighVal": 424.173,
+      "LowVal": 420.822,
+      "LastVal": 421.396,
+      "ChgVal": -1.15,
+      "ChgPct": -0.27,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/Investor33",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "SRI-KEHATI",
+      "PrevVal": 382.888,
+      "HighVal": 383.488,
+      "LowVal": 380.296,
+      "LastVal": 380.836,
+      "ChgVal": -2.05,
+      "ChgPct": -0.54,
+      "DtCreate": "2026-01-02T09:44:34",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/SRI-KEHATI",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "IDXBUMN20",
+      "PrevVal": 381.053,
+      "HighVal": 382.747,
+      "LowVal": 379.199,
+      "LastVal": 380.254,
+      "ChgVal": -0.8,
+      "ChgPct": -0.21,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/IDXBUMN20",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "IDXSMC-LIQ",
+      "PrevVal": 360.611,
+      "HighVal": 364.188,
+      "LowVal": 360.706,
+      "LastVal": 363.403,
+      "ChgVal": 2.79,
+      "ChgPct": 0.77,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/IDXSMC-LIQ",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "MNC36",
+      "PrevVal": 344.633,
+      "HighVal": 346.239,
+      "LowVal": 344.12,
+      "LastVal": 344.682,
+      "ChgVal": 0.05,
+      "ChgPct": 0.01,
+      "DtCreate": "2026-01-02T09:44:38",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/MNC36",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "ISSI",
+      "PrevVal": 308.607,
+      "HighVal": 312.074,
+      "LowVal": 308.558,
+      "LastVal": 311.794,
+      "ChgVal": 3.19,
+      "ChgPct": 1.03,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/ISSI",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "SMInfra18",
+      "PrevVal": 288.898,
+      "HighVal": 290.169,
+      "LowVal": 288.173,
+      "LastVal": 289.083,
+      "ChgVal": 0.19,
+      "ChgPct": 0.06,
+      "DtCreate": "2026-01-02T09:44:35",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/SMInfra18",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "I-GRADE",
+      "PrevVal": 227.705,
+      "HighVal": 228.805,
+      "LowVal": 226.887,
+      "LastVal": 227.403,
+      "ChgVal": -0.3,
+      "ChgPct": -0.13,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/I-GRADE",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "JII70",
+      "PrevVal": 212.607,
+      "HighVal": 214.954,
+      "LowVal": 212.522,
+      "LastVal": 214.425,
+      "ChgVal": 1.82,
+      "ChgPct": 0.86,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/JII70",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "PRIMBANK10",
+      "PrevVal": 187.888,
+      "HighVal": 188.36,
+      "LowVal": 186.067,
+      "LastVal": 186.461,
+      "ChgVal": -1.43,
+      "ChgPct": -0.76,
+      "DtCreate": "2026-01-02T09:44:33",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/PRIMBANK10",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "IDXESGL",
+      "PrevVal": 150.954,
+      "HighVal": 151.806,
+      "LowVal": 150.273,
+      "LastVal": 150.707,
+      "ChgVal": -0.25,
+      "ChgPct": -0.16,
+      "DtCreate": "2026-01-02T09:44:38",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/IDXESGL",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "IDXG30",
+      "PrevVal": 142.036,
+      "HighVal": 142.703,
+      "LowVal": 141.698,
+      "LastVal": 141.972,
+      "ChgVal": -0.06,
+      "ChgPct": -0.05,
+      "DtCreate": "2026-01-02T09:44:37",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/IDXG30",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "IDXQ30",
+      "PrevVal": 140.211,
+      "HighVal": 140.871,
+      "LowVal": 139.877,
+      "LastVal": 140.065,
+      "ChgVal": -0.15,
+      "ChgPct": -0.1,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/IDXQ30",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "IDXV30",
+      "PrevVal": 139.183,
+      "HighVal": 139.563,
+      "LowVal": 138.857,
+      "LastVal": 139.087,
+      "ChgVal": -0.1,
+      "ChgPct": -0.07,
+      "DtCreate": "2026-01-02T09:44:37",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/IDXV30",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "IDX80",
+      "PrevVal": 132.558,
+      "HighVal": 133.556,
+      "LowVal": 132.532,
+      "LastVal": 133.129,
+      "ChgVal": 0.57,
+      "ChgPct": 0.43,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/IDX80",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "ESGSKEHATI",
+      "PrevVal": 128.296,
+      "HighVal": 128.721,
+      "LowVal": 127.779,
+      "LastVal": 127.948,
+      "ChgVal": -0.35,
+      "ChgPct": -0.27,
+      "DtCreate": "2026-01-02T09:44:38",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/ESGSKEHATI",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "ESGQKEHATI",
+      "PrevVal": 127.366,
+      "HighVal": 127.745,
+      "LowVal": 126.764,
+      "LastVal": 126.948,
+      "ChgVal": -0.42,
+      "ChgPct": -0.33,
+      "DtCreate": "2026-01-02T09:44:38",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/ESGQKEHATI",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "ECONOMIC30",
+      "PrevVal": 116.511,
+      "HighVal": 117.264,
+      "LowVal": 116.478,
+      "LastVal": 116.641,
+      "ChgVal": 0.13,
+      "ChgPct": 0.11,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/ECONOMIC30",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "IDXLQ45LCL",
+      "PrevVal": 116.035,
+      "HighVal": 116.747,
+      "LowVal": 115.769,
+      "LastVal": 116.068,
+      "ChgVal": 0.03,
+      "ChgPct": 0.03,
+      "DtCreate": "2026-01-02T09:44:38",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/IDXLQ45LCL",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "IDXSHAGROW",
+      "PrevVal": 99.138,
+      "HighVal": 99.935,
+      "LowVal": 99.055,
+      "LastVal": 99.622,
+      "ChgVal": 0.48,
+      "ChgPct": 0.49,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/IDXSHAGROW",
+          "Method": "GET"
+        }
+      ]
+    },
+    {
+      "IndexCode": "IDXMESBUMN",
+      "PrevVal": 90.362,
+      "HighVal": 90.941,
+      "LowVal": 90.235,
+      "LastVal": 90.623,
+      "ChgVal": 0.26,
+      "ChgPct": 0.29,
+      "DtCreate": "2026-01-02T09:44:39",
+      "Links": [
+        {
+          "Rel": "self",
+          "Href": "/api/api/marketsummary/indexsummary/IDXMESBUMN",
+          "Method": "GET"
+        }
+      ]
+    }
+  ],
+  "ItemCount": 32,
+  "PageSize": 1000,
+  "Links": [
+    {
+      "Rel": "all",
+      "Href": "/api/api/marketsummary/indexsummary",
+      "Method": "GET"
+    },
+    {
+      "Rel": "currentPage",
+      "Href": "/IDX/api/v1/marketsummary/indexsummary/group/constituent?pagenumber=1&pagesize=1000",
+      "Method": "GET"
+    }
+  ],
+  "PageNumber": 1,
+  "PageCount": 1,
+  "Language": null
+}
