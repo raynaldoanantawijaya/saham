@@ -118,42 +118,67 @@ async function scrapeAllData(options = { stocks: true, gold: true, crypto: true 
                     await page.setUserAgent(USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)]);
 
                     console.log('Navigating to IDX...');
+                    // Use a slightly longer timeout and standard network idle
                     await page.goto('https://www.idx.co.id/primary/TradingSummary/GetStockSummary', {
                         waitUntil: 'networkidle2',
-                        timeout: 60000
+                        timeout: 90000
                     });
 
-                    // IDX returns JSON in the body text or inside a <pre> tag
-                    const json = await page.evaluate(() => {
-                        try {
-                            return JSON.parse(document.body.innerText);
-                        } catch (e) { return null; }
-                    }).then(async (data) => {
-                        if (data) return data;
-                        // Fallback
-                        return await page.evaluate(() => {
-                            try { return JSON.parse(document.querySelector('pre').innerText); } catch (e) { return null; }
-                        });
+                    // Enhanced Scraping Logic
+                    const rawData = await page.evaluate(() => {
+                        // Priority 1: Direct Body Text (if looks like JSON)
+                        const bodyTxt = document.body.innerText.trim();
+                        if (bodyTxt && (bodyTxt.startsWith('{') || bodyTxt.startsWith('['))) return bodyTxt;
+
+                        // Priority 2: Pre Tag (sometimes JSON is wrapped in pre)
+                        const pre = document.querySelector('pre');
+                        if (pre) return pre.innerText.trim();
+
+                        // Fallback: Just return body innerHTML to debug what we got
+                        return document.body.innerHTML;
                     });
 
-                    if (json && json.data && Array.isArray(json.data)) {
-                        const stocks = json.data.map(item => ({
-                            Code: item.StockCode,
-                            Name: item.StockName,
-                            Previous: item.Previous,
-                            High: item.High,
-                            Low: item.Low,
-                            Last: item.Close,
-                            Change: item.Change,
-                            ChangePct: item.Previous !== 0 ? parseFloat(((item.Change / item.Previous) * 100).toFixed(2)) : 0
+                    let json;
+                    try {
+                        json = JSON.parse(rawData);
+                    } catch (e) {
+                        // Attempt to clean if wrapped in HTML tags inadvertently
+                        if (rawData) {
+                            const clean = rawData.replace(/<[^>]*>?/gm, ''); // strip tags
+                            try { json = JSON.parse(clean); }
+                            catch (e2) {
+                                // Log the failure details for debugging
+                                console.error('Raw IDX Response (First 200 chars):', rawData.substring(0, 200));
+                                throw new Error('Response is not valid JSON. Possibly HTML or Empty.');
+                            }
+                        } else {
+                            throw new Error('Received Empty Response from IDX');
+                        }
+                    }
+
+                    if (json && (json.data || json.Data) && Array.isArray(json.data || json.Data)) {
+                        const stockArray = json.data || json.Data;
+
+                        const stocks = stockArray.map(item => ({
+                            Code: item.StockCode || item.stockCode,
+                            Name: item.StockName || item.stockName,
+                            Previous: item.Previous || item.previous,
+                            High: item.High || item.high,
+                            Low: item.Low || item.low,
+                            Last: item.Close || item.close,
+                            Change: item.Change || item.change,
+                            ChangePct: (item.Previous || item.previous) !== 0 ?
+                                parseFloat((((item.Change || item.change) / (item.Previous || item.previous)) * 100).toFixed(2)) : 0
                         }));
 
                         const result = { LastUpdate: timestamp, TotalItems: stocks.length, Stocks: stocks };
                         fs.writeFileSync(DATA_FILE, JSON.stringify(result, null, 2));
                         stockResult = { status: 'success', count: stocks.length };
                         console.log(`Stock Fetch Success: ${stocks.length} items`);
+                    } else if (json && json.userMessage) {
+                        throw new Error(`IDX API Error: ${json.userMessage}`);
                     } else {
-                        throw new Error('Invalid JSON structure from IDX');
+                        throw new Error('Invalid JSON structure from IDX (missing data array)');
                     }
                     await page.close();
                 } catch (error) {
@@ -305,8 +330,7 @@ async function scrapeAllData(options = { stocks: true, gold: true, crypto: true 
 }
 
 // --- SCHEDULERS ---
-// Internal schedulers removed in favor of External Cron Logic (e.g. console.cron-job.org)
-// Use /api/trigger-fetch?target=stocks or ?target=gold_crypto
+// External Cron Only
 
 app.get('/', (req, res) => res.send('<h1>Scraper API</h1><p>Stocks: /api/idx-data</p><p>Gold: /api/gold-data</p><p>Crypto: /api/crypto-data</p>'));
 
@@ -369,7 +393,6 @@ app.get('/api/trigger-fetch', async (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
-    // Check if ANY data file is missing (Stock, Gold, OR Crypto) to do initial fetch
     const missingStock = !fs.existsSync(DATA_FILE);
     const missingGold = !fs.existsSync(GOLD_DATA_FILE);
     const missingCrypto = !fs.existsSync(CRYPTO_DATA_FILE);
