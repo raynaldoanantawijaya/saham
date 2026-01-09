@@ -1,66 +1,69 @@
-name: Daily Scraper (Stocks & Crypto)
+name: Daily Scraper (Docker)
 
 on:
   schedule:
     # 1. Stocks: Mon-Fri 09:05 WIB = 02:05 UTC & 16:05 WIB = 09:05 UTC
     - cron: '5 2,9 * * 1-5'
     
-    # 2. Gold/Crypto: Daily 08:00 WIB = 01:00 UTC, 14:0 WIB = 07:00 UTC, 20:00 WIB = 13:00 UTC
+    # 2. Gold/Crypto: Daily 08:00 WIB = 01:00 UTC, 14:00 WIB = 07:00 UTC, 20:00 WIB = 13:00 UTC
     - cron: '0 1,7,13 * * *'
 
-  workflow_dispatch: # Allow manual trigger button
+  workflow_dispatch:
 
 jobs:
   scrape-data:
     runs-on: ubuntu-latest
+    # VITAL: Run inside the official Puppeteer container
+    container:
+      image: ghcr.io/puppeteer/puppeteer:latest
+      options: --user root # Run as root to allow installing extra npm packages if needed
 
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      # RETRY: Classic Approach - Install libraries manually, let Puppeteer download Chromium
-      - name: Install System Dependencies
+      # Note: Node & Chrome are PRE-INSTALLED in this image! 
+      # We just need to install our project dependencies.
+      
+      - name: Install Project Dependencies
+        # Use 'npm install' but skip puppeteer download (it's already in the image)
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
+          PUPPETEER_EXECUTABLE_PATH: /usr/bin/google-chrome-stable
         run: |
-          sudo apt-get update
-          sudo apt-get install -y ca-certificates fonts-liberation libasound2 libatk-bridge2.0-0 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgbm1 libgcc1 libglib2.0-0 libgtk-3-0 libnspr4 libnss3 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 lsb-release wget xdg-utils
+          npm install
 
-      - name: Install Node Dependencies
-        run: npm install
-        # NOTE: We DO NOT skip chromium download here. Let Puppeteer fetch its matching browser.
-
-      - name: Determine Target & Run Scraper
+      - name: Run Scraper
+        env:
+          # Tell our script where Chrome is
+          PUPPETEER_EXECUTABLE_PATH: /usr/bin/google-chrome-stable
         run: |
-          # Get current hour in UTC
+          # Same logic as before
           HOUR=$(date -u +%H)
-          
-          # Default to gold_crypto
           TARGET="gold_crypto"
           
-          # If UTC hour is roughly 02 (09 WIB) or 09 (16 WIB), run stocks too
           if [ "$HOUR" -eq "02" ] || [ "$HOUR" -eq "09" ]; then
              TARGET="stocks"
-             echo "Time matches Stocks Schedule. Running for STOCKS."
+             echo "Target: STOCKS"
              node gh_scraper.js --target=stocks
           else
-             echo "Time matches Gold/Crypto Schedule. Running for GOLD/CRYPTO."
+             echo "Target: GOLD/CRYPTO"
              node gh_scraper.js --target=gold_crypto
           fi
           
-          # Force run ALL if triggered manually
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-             echo "Manual Trigger detected. Running ALL."
+             echo "Manual Trigger: ALL"
              node gh_scraper.js --target=all
           fi
 
-      - name: Commit and Push Changes
+      # COMMIT (Need to install git in the container first because it's minimal)
+      - name: Commit and Push
         run: |
+          apt-get update && apt-get install -y git
+          git config --global --add safe.directory /__w/saham/saham
           git config --global user.name "GitHub Action Scraper"
           git config --global user.email "actions@github.com"
+          
           git add idx_data.json gold_data.json crypto_data.json all_data.json
           
           # Only commit if data changed
