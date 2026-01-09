@@ -81,6 +81,8 @@ async function runScraper() {
         browser = await puppeteer.launch({
             headless: "new",
             userDataDir: USER_DATA_DIR,
+            // If running in GitHub Actions, use the installed Chrome path
+            executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
             args: [
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
