@@ -250,6 +250,23 @@ async function runScraper() {
         console.error('Browser Launch Error:', error.message);
     } finally {
         if (browser) await browser.close();
+
+        // --- MERGE ALL DATA INTO ONE FILE (all_data.json) ---
+        // This allows frontend to fetch just ONE URL, similar to /api/all-data
+        try {
+            const allData = {
+                stocks: fs.existsSync(DATA_FILE) ? JSON.parse(fs.readFileSync(DATA_FILE, 'utf8')) : null,
+                gold: fs.existsSync(GOLD_DATA_FILE) ? JSON.parse(fs.readFileSync(GOLD_DATA_FILE, 'utf8')) : null,
+                crypto: fs.existsSync(CRYPTO_DATA_FILE) ? JSON.parse(fs.readFileSync(CRYPTO_DATA_FILE, 'utf8')) : null,
+                server_time: new Date().toISOString()
+            };
+            const ALL_DATA_FILE = path.join(__dirname, 'all_data.json');
+            fs.writeFileSync(ALL_DATA_FILE, JSON.stringify(allData, null, 2));
+            console.log('Unified Data (all_data.json) Generated Successfully.');
+        } catch (mergeErr) {
+            console.error('Error generating all_data.json:', mergeErr.message);
+        }
+
         process.exit(0);
     }
 }

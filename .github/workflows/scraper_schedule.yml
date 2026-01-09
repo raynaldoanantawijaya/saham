@@ -54,7 +54,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Action Scraper"
           git config --global user.email "actions@github.com"
-          git add idx_data.json gold_data.json crypto_data.json
+          git add idx_data.json gold_data.json crypto_data.json all_data.json
           
           # Only commit if data changed
           git diff --quiet && git diff --staged --quiet || (git commit -m "data: auto-update prices [skip ci]" && git push)
